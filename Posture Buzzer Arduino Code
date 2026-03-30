@@ -9,7 +9,7 @@ void loop() {
   int state = digitalRead(foilPin);
 
   if (state == HIGH){ //foils not touching (slouching)
-    delay(2000); //wait 2 seconds in case person is just moving
+    delay(1500); //wait 1.5 seconds in case person is just moving
     if(digitalRead(foilPin)==HIGH) { //read input again, if person is still slouched
       tone(buzzer, 1000); //tone
     }
