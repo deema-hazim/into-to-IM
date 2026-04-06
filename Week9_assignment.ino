@@ -1,22 +1,20 @@
-//variables for the analog input ultrasonic sensor switch
+//declaring variables
 int trigPin = 10;
 int echoPin = 9;
-int ultrasonicLED = 3;
+int redLED = 3;
 int distanceThreshold = 10;  //in cm
 float duration, distanceCm;
 int brightness = 0;
-
-//variables for the digital input slide switch
 int switchPin = 2;
-int switchLED = 6;
+int greenLED = 6;
 
 void setup() {
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(ultrasonicLED, OUTPUT);
+  pinMode(redLED, OUTPUT);
   pinMode(switchPin, INPUT);
-  pinMode(switchLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
 }
 
 void loop() {
@@ -36,11 +34,11 @@ void loop() {
   int slideSwitchState = digitalRead(switchPin);
 
   if (slideSwitchState == HIGH) {
-    digitalWrite(switchLED, LOW);  //turn off the unused LED when the switch changes them
-    analogWrite(ultrasonicLED, brightness); //set brightness 
+    digitalWrite(greenLED, LOW);  //turn off the unused LED when the switch changes them
+    analogWrite(redLED, brightness); //set brightness 
   } else {
-    digitalWrite(ultrasonicLED, LOW);  //turn off the unused LED when the switch changes them
-    analogWrite(switchLED, brightness);
+    digitalWrite(redLED, LOW);  //turn off the unused LED when the switch changes them
+    analogWrite(greenLED, brightness);
   }
 
   //print the value to Serial Monitor
