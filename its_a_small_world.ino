@@ -59,14 +59,7 @@ void loop() {
   if (justPressed) {
     int duration = 1000 / durations[note];
 
-    int shiftedNote;
-
-    //if the note is 0, keep it 0, do not multiply it
-    if (melody[note] == REST) {
-      shiftedNote = REST;
-    } else {
-      shiftedNote = (int)(melody[note] * pitchMultiplier);
-    }
+    int shiftedNote = (int)(melody[note] * pitchMultiplier);
 
     tone(BUZZER_PIN, shiftedNote, duration);
 
